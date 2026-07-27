@@ -1,0 +1,21 @@
+# 1. Windows OS generated files and trash
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 2. IDE and code editor configurations
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# 3. Java and Spring Boot build artifacts (Backend)
+target/
+*.class
+*.jar
+*.war
+
+# 4. React and Node.js dependencies and build directories (Frontend)
+node_modules/
+build/
+dist/
