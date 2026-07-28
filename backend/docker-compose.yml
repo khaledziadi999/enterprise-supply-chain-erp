@@ -1,0 +1,30 @@
+services:
+  #  (PostgreSQL Engine)
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: erp-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: erp_db
+      POSTGRES_USER: erp_admin
+      POSTGRES_PASSWORD: secret_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  # (PgAdmin Dashboard)
+  pgadmin-web:
+    image: dpage/pgadmin4:latest
+    container_name: erp-pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@erp.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres-db
+
+
+volumes:
+  postgres_data:
