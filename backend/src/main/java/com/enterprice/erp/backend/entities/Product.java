@@ -1,6 +1,10 @@
 package com.enterprice.erp.backend.entities;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="products")
 @Getter
@@ -18,6 +22,8 @@ public class Product {
     @Column(nullable = false)
     private String name; //product name
     private  Double basePrice; //product price
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProductAttachment> attachments = new ArrayList<>();
 
 
 }
