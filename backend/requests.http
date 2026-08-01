@@ -1,0 +1,13 @@
+### Add 50 Samsung TVs to Riyadh Warehouse
+POST http://localhost:8080/api/inventory
+Content-Type: application/json
+
+{
+  "quantity": 50,
+  "product": {
+    "id": 4
+  },
+  "warehouse": {
+    "id": 1
+  }
+}
